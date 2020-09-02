@@ -26,7 +26,7 @@ jobs:
       - name: Run a one-line script
         run: |
           Write-Output 'Hello World'
-          $jsonFile = "/package.json"
+          $jsonFile = "$GITHUB_WORKSPACE/Testing/package.json"
           $content = Get-Content $jsonFile -raw | ConvertFrom-Json
           $content.'name' = "New App Name"
           $content | ConvertTo-Json -depth 32| set-content $jsonFile
