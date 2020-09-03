@@ -28,6 +28,7 @@ jobs:
           Write-Output 'Hello World'
           $jsonFile = "package.json"
           $content = Get-Content $jsonFile -raw | ConvertFrom-Json
+          echo '::set-env name=PROJECT_NAME::$content.'name'
           Write-Output $content.'name'
           $content.'name' = "New App Name"
           $content | ConvertTo-Json -depth 32| set-content $jsonFile
@@ -35,6 +36,7 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
         run: |
+          Write-Output THE NEW NAME IS $PROJECT_NAME
           $jsonFile = "package.json"
           $content = Get-Content $jsonFile -raw | ConvertFrom-Json
           Write-Output $content.'name'
