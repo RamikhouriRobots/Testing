@@ -25,7 +25,7 @@ jobs:
       # Runs a single command using the runners shell
       - name: Run a one-line script
         run: |
-          Compress-Archive -Path package.json -DestinationPath package.zip
+          Compress-Archive -Path **\dist\ -DestinationPath dist\dist.zip
           Write-Output 'Hello World'
           $jsonFile = "package.json"
           $content = Get-Content $jsonFile -raw | ConvertFrom-Json
