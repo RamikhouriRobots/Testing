@@ -44,9 +44,6 @@ jobs:
       - name: Run a multi-line script
         run: |
           Write-Output THE NEW NAME IS $PROJECT_NAME
-          $jsonFile = "package.json"
-          $content = Get-Content $jsonFile -raw | ConvertFrom-Json
-          Write-Output $content.'name'
           
       - name: Installing AppCenter CLI 
         run: npm install -g appcenter-cli  
