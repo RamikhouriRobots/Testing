@@ -44,6 +44,7 @@ jobs:
       - name: Run a multi-line script
         run: |
           Write-Output THE NEW NAME IS $PROJECT_NAME
+          Write-Output ${{ env.PROJECT_NAME }}
           $jsonFile = "package.json"
           $content = Get-Content $jsonFile -raw | ConvertFrom-Json
           Write-Output $content.'name'
