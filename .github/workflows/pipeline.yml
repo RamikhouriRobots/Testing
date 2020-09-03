@@ -47,3 +47,6 @@ jobs:
           $jsonFile = "package.json"
           $content = Get-Content $jsonFile -raw | ConvertFrom-Json
           Write-Output $content.'name'
+          
+      - name: Installing AppCenter CLI 
+        run: npm install -g appcenter-cli  
