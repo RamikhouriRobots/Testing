@@ -31,7 +31,7 @@ jobs:
           Write-Output $content.'name'
           $content.'name' = "New App Name"
           $content | ConvertTo-Json -depth 32| set-content $jsonFile
-          run echo '::set-env name=PROJECT_NAME::$content.'name''
+          echo '::set-env name=PROJECT_NAME::$content.'name''
 
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
