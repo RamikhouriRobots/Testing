@@ -21,12 +21,14 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
+        env:
+          FIRST_NAME: Mona
 
       # Runs a single command using the runners shell
       - name: Run a one-line script
         run: |
           Compress-Archive -Path dist/ -DestinationPath dist.zip
-          Write-Output 'Hello World'
+          Write-Output $FIRST_NAME
           $jsonFile = "package.json"
           $content = Get-Content $jsonFile -raw | ConvertFrom-Json
           Write-Output $content.'name'
